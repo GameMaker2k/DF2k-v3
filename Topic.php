@@ -67,13 +67,13 @@ $Topics = mysql_fetch_array($topic_query2);
 $TopicPin=$Topics['Pinned'];
 ?></head><?php
 if ($_GET['Backwards']=="Yes") {
-	echo "\n<body dir=\"rtl\">"; }
+	echo "\n<body dir=\"rtl\" onload=\"updatetoggle('FastReply');\">"; }
 if ($_GET['Backwards']=="yes") {
-	echo "\n<body dir=\"rtl\">"; }
+	echo "\n<body dir=\"rtl\" onload=\"updatetoggle('FastReply');\">"; }
 if ($_GET['Backwards']=="on") {
-	echo "\n<body dir=\"rtl\">"; }
+	echo "\n<body dir=\"rtl\" onload=\"updatetoggle('FastReply');\">"; }
 if ($_GET['Backwards']!="on") {
-    echo "\n<body>"; }
+    echo "\n<body onload=\"updatetoggle('FastReply');\">"; }
 ?>
 <?php
 $Type="Reply";
@@ -220,7 +220,47 @@ $post_query = mysql_query("SELECT * FROM ".$TablePreFix."Posts WHERE TopicID=".$
 			$usewidth="62%"; }
 	   if ($Groups['Has_admin_cp']=="no"&&$Groups['Has_mod_cp']=="no") {
 		   $usewidth="72%"; } ?>
- <table border="1" cellpadding="2" cellspacing="3" width="100%"><tr align="center"><th width="<?php echo $usewidth; ?>"><a href="Topic.php?id=<?php echo $_GET['id'] ?>&amp;ForumID=<?php echo $_GET['ForumID'] ?>&amp;CatID=<?php echo $_GET['CatID'] ?>&amp;act=Create" title="<?php echo $lang['reply to topic']; ?>"><?php echo $lang['add reply']; ?></a> | <a href="Topic.php?id=<?php echo $_GET['id'] ?>&amp;ForumID=<?php echo $_GET['ForumID'] ?>&amp;CatID=<?php echo $_GET['CatID'] ?>&amp;act=View<?php echo $FastReplyExtra; ?>#FastReply" name="FastReply" title="<?php echo $lang2['open/close fast reply']; ?>" onclick="toggletag('FastReply');"><?php echo $lang2['fast reply']; ?></a></th><?php if ($Groups['Has_admin_cp']=="yes"||$Groups['Has_mod_cp']=="yes") { ?><th>
+<script type="text/javascript">
+<!--
+function toggleview2(id)
+{
+if (itm.style.display == "none")
+{
+itm.style.display = "";
+createCookie('Fast1','',7);
+}
+else
+{
+itm.style.display = "none";
+createCookie('Fast1','none',7);
+}
+}
+function toggletag2(id)
+{
+getid(id);
+toggleview2(id);
+}
+function updatetoggle(id)
+{
+if(readCookie('Fast1')==null)
+{
+getid(id);
+itm.style.display = "";
+}
+if(readCookie('Fast1')=="none")
+{
+getid(id);
+itm.style.display = "none";
+}
+if(readCookie('Fast1')=="")
+{
+getid(id);
+itm.style.display = "";
+}
+}
+//-->
+</script>
+ <table border="1" cellpadding="2" cellspacing="3" width="100%"><tr align="center"><th width="<?php echo $usewidth; ?>"><a href="Topic.php?id=<?php echo $_GET['id'] ?>&amp;ForumID=<?php echo $_GET['ForumID'] ?>&amp;CatID=<?php echo $_GET['CatID'] ?>&amp;act=Create" title="<?php echo $lang['reply to topic']; ?>"><?php echo $lang['add reply']; ?></a> | <a href="Topic.php<?php echo $BoardQuery; ?>#FastReply" name="FastReply" title="<?php echo $lang2['open/close fast reply']; ?>" onclick="toggletag2('FastReply');"><?php echo $lang2['fast reply']; ?></a></th><?php if ($Groups['Has_admin_cp']=="yes"||$Groups['Has_mod_cp']=="yes") { ?><th>
  <form name="ModTool" method=get action="?act=ModTool">
 	<input type="hidden" class="HiddenTextBox" style="display: none;" name="act" value="ModTool" />
 	<label for="ModTools"><?php echo $lang2['mod tools']; ?></label><br />
@@ -239,7 +279,7 @@ $post_query = mysql_query("SELECT * FROM ".$TablePreFix."Posts WHERE TopicID=".$
 	<input type="hidden" class="HiddenTextBox" style="display: none;" name="id" value="<?php echo $id; ?>" />
 	<input type="submit" value="<?php echo $adminlang['use mod tool']; ?>" class="Button" />
 	</form></th><?php } ?></tr>
-  <tr align="center" style="display: <?php echo $FastReplyShow; ?>;" id="FastReply">
+  <tr align="center" id="FastReply">
    <td width="<?php echo $usewidth; ?>">	
 	<form method=post name="Reply" onSubmit=" return CheckForms(this)" action="?id=<?php echo $_GET['id'] ?>&amp;ForumID=<?php echo $_GET['ForumID'] ?>&amp;&amp;CatID=<?php echo $_GET['CatID'] ?>&act=Send">
 	<?php if ($_SESSION['MemberName']==null) { ?>

@@ -92,7 +92,7 @@ $_SESSION['MemberName']=null;
 $_SESSION['UserID']=0;
 $_SESSION['UserGroup']="Guest";
 $_SESSION['UserTimeZone']=0; }
-$_SESSION['DF2kVer']="v3.3.R<!-- Renee Sabonis is very lovely/Cute. ^_^ -->&nbsp;Beta 3";
+$_SESSION['DF2kVer']="v3.3.T<!-- Renee Sabonis is very lovely/Cute. ^_^ -->&nbsp;Beta 4";
 //Skining Stuff
 if ($HTTP_COOKIE_VARS[UseSkin]==null) {
 setcookie("UseSkin", 1, time() + (7 * 86400) ); }

@@ -65,11 +65,11 @@ if ($_GET['act']=="RSS"||$_GET['act']=="rss") {
 if ($_GET['act']=="FavIcon"||$_GET['act']=="favicon") {
 	header('Location: ./misc/FavIcon.png'); }
 if ($_GET['act']=="GM2kSite"||$_GET['act']=="gm2ksite") {
-	header('Location: http://df2k.5gigs.com/index.php?act=View'); }
+	header('Location: http://developer.berlios.de/projects/df2k/'); }
 if ($_GET['act']=="GM2kBoard"||$_GET['act']=="gm2kboard") {
-	header('Location: http://df2k.5gigs.com/Board/index.php?act=View'); }
+	header('Location: http://df2k.berlios.de/board/index.php?act=View'); }
 if ($_GET['act']=="GM2kTagBoard"||$_GET['act']=="gm2ktagboard") {
-	header('Location: http://df2k.5gigs.com/Board/TagBoard.php?act=View'); }
+	header('Location: http://df2k.berlios.de/TagBoard.php?act=View'); }
 if ($_GET['act']=="SQLServer"||$_GET['act']=="sqlserver"||$_SERVER["QUERY_STRING"]=="SQLServer"||$_SERVER["QUERY_STRING"]=="sqlserver") {
 	$Settings['sql_host'];
 	$SQLURL=$Settings['sql_host'][0].$Settings['sql_host'][1].$Settings['sql_host'][2].$Settings['sql_host'][3];
@@ -190,8 +190,8 @@ echo "</style>\n\r<title>".$BoardName." ".$TitleLine." GDInfo</title>\n\r</head>
 	var_dump(gd_info());
 	die("</body>\n\r</html>"); }
 /* Check to see if the User is trying to Edit Session Vars. ^_^ */
-$_SESSION['DF2kVer']="v3.3.S<!-- Renee Sabonis -->";
-$_SESSION['DF2kPreVer']="&nbsp;Beta 3";
+$_SESSION['DF2kVer']="v3.3.T<!-- Renee Sabonis -->";
+$_SESSION['DF2kPreVer']="&nbsp;Beta 4";
 if (isset($_REQUEST['UserName'])) {
    exit('An attempt to modify session data was made.'); }
 if (isset($_REQUEST['UserID'])) {
@@ -372,7 +372,7 @@ if ($_GET['act']=="Signin") {
 if ($_GET['act']=="signout") {
 	header('Location: Members.php?act=Logout'); }
 if ($_GET['act']=="GetDF2k"||$_GET['act']=="getdf2k") {
-	header('Location: http://df2k.5gigs.com/index.php?act=View'); }
+	header('Location: http://developer.berlios.de/projects/df2k/'); }
 if ($_GET['act']=="Jcink"||$_GET['act']=="jcink") {
 	header('Location: http://jcink.com/'); }
 if ($_GET['act']=="RPGNation"||$_GET['act']=="rpgnation") {

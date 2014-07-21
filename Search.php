@@ -34,6 +34,14 @@ if ($_GET['act']=="Search") {
 	if ($_GET['type']=="FindMembers") { ?>
 <title><?php echo $BoardName?> <?php echo $TitleLine ?> <?php echo $lang2['searching for members']; ?></title>
 <?php } }
+if ($_GET['act']=="Search") { 
+	if ($_GET['type']=="Topics") { ?>
+<title><?php echo $BoardName?> <?php echo $TitleLine ?> Searching for Topics</title>
+<?php } }
+if ($_GET['act']=="Search") { 
+	if ($_GET['type']=="FindTopics") { ?>
+<title><?php echo $BoardName?> <?php echo $TitleLine ?> Searching for Topics</title>
+<?php } }
 if ($_GET['Backwards']=="Yes") {
 	echo "\n<body dir=\"rtl\">"; }
 if ($_GET['Backwards']=="yes") {
@@ -204,8 +212,108 @@ if($Groups['View_board']=="no") {
    <td width="6%" align="center">&nbsp;???&nbsp;</td>
   </tr> <?php } ?>
 </table>
-	<?php } } ?>
-		<?php if ($Google['ads']==true) {
+	<?php } } 
+	if ($_GET['act']=="Search") {
+		if ($_GET['type']=="Topics") { ?>
+			<div align="center">
+ <center>
+ <table border="1" cellpadding="2" cellspacing="3" width="100%">
+  <tr>
+   <td width="28%">
+	<form method="get" action="?act=Search&amp;type=FindMembers">
+	<label for="Name"><?php echo "Insert Topic Name: "; ?><br />
+    </label><input type="text" class="TextBox" id="Name" name="SearchName" value="Enter a Name.">
+	<input type="submit" class="Button" name="Search" value="Find">
+	<input type="reset" class="Button" name="Reset" value="Reset">
+	<br /><label for="WC"><?php echo $lang2['Wildcard Type']; ?>
+    </label><select size="1" id="WC" size="1" class="Menu" name="wildcard">
+	<option value="TopicName" selected="selected"><?php echo "TopicName"; ?></option>
+	<option value="^TopicName"><?php echo "%TopicName"; ?></option>
+	<option value="^TopicName^"><?php echo "%TopicName%"; ?></option>
+	<option value="TopicName^"><?php echo "TopicName%"; ?></option>
+	</select>
+	<input type="hidden" class="HiddenTextBox" style="display: none;" name="act" value="Search" />
+	<input type="hidden" class="HiddenTextBox" style="display: none;" name="type" value="FindTopics" />
+	</form></td>
+  </tr>
+ </table>
+ </center>
+</div>
+		<?php } }
+			if ($_GET['type']=="FindTopics") {
+		if ($_GET['SearchName']!=null) {
+			require('./lang/en/Forum.php'); ?>
+<center>
+ <table border="1" cellpadding="2" cellspacing="3" width="100%">
+  <tr>
+   <th style="text-align: center;" width="2%">&nbsp;</th>
+   <th width="27%"><?php echo $lang2['topics']; ?></th>
+   <th width="36%"><?php echo $lang2['time created']; ?></th>
+   <th width="31%"><?php echo $lang2['created by']; ?></th>
+   <th width="6%"><?php echo $lang2['replys']; ?></th>
+  </tr>
+		<?php
+			if ($_GET['wildcard']=="TopicName") { $query="SELECT * FROM ".$TablePreFix."Topics  WHERE `TopicName`='".$_GET['SearchName']."' order by `TopicName` asc"; }
+			if ($_GET['wildcard']=="^TopicName") { $query="SELECT * FROM ".$TablePreFix."Topics  WHERE `TopicName` LIKE '%".$_GET['SearchName']."' order by `TopicName` asc"; }
+			if ($_GET['wildcard']=="^TopicName^") { $query="SELECT * FROM ".$TablePreFix."Topics  WHERE `TopicName` LIKE '%".$_GET['SearchName']."%' order by `TopicName` asc"; }
+			if ($_GET['wildcard']=="TopicName^") { $query="SELECT * FROM ".$TablePreFix."Topics  WHERE `TopicName` LIKE '".$_GET['SearchName']."%' order by `TopicName` asc"; }
+			$result=mysql_query($query);
+			$num=mysql_num_rows($result);
+			$result=mysql_query($query);
+			$num=mysql_num_rows($result);
+			$i=0;
+			while ($i < $num) {
+			$TopicID=mysql_result($result,$i,"ID");
+			$ForumID=mysql_result($result,$i,"ForumID");
+			$CategoryID=mysql_result($result,$i,"CategoryID");
+			$UsersID=mysql_result($result,$i,"UserID");
+			$GuestName=mysql_result($result,$i,"GuestName");
+			$TheTime=mysql_result($result,$i,"TimeStamp");
+			$TheTime=GMTimeChange("F j, Y, g:i a",$TheTime,$YourOffSet);
+			$TopicName=mysql_result($result,$i,"TopicName");
+			$PinnedTopic=mysql_result($result,$i,"Pinned");
+			$TopicStat=mysql_result($result,$i,"Closed");
+			$result2 = mysql_query("SELECT * FROM ".$TablePreFix."Members");
+		while ($row = mysql_fetch_array($result2, MYSQL_NUM)) {
+        if ($row[0]==$UsersID) {
+        $User1Name = $row[1];
+        $User1Email = $row[3];
+        $User1Signature = $row[9];
+        $User1Avatar = $row[10];
+        $User1Website = $row[11];
+		if($User1Name=="Guest") { $User1Name=$GuestName; }  }	 }
+		$queryone="SELECT * FROM ".$TablePreFix."Posts WHERE (TopicID=$TopicID) AND (CategoryID=".$CategoryID.")";
+		$resultone=mysql_query($queryone);
+		$ReplyNumber=mysql_num_rows($resultone);
+		if ($PinnedTopic==0) {
+		if ($PinnedTopic==0) {
+		$PreTopic="&nbsp;"; } }
+		if ($PinnedTopic==1) {
+		$PreTopic="<img src=\"Skin/Skin".$_SESSION["Skin"]."/pin.png\" alt=\"Pinned!\" title=\"Pinned Topic!\" />"; }
+		if ($TopicStat==1) {
+		$PreTopic="<img src=\"Skin/Skin".$_SESSION["Skin"]."/lock.png\" alt=\"Closed!\" title=\"Closed Topic!\" />"; }
+		if ($PinnedTopic==0) {
+		if ($TopicStat==0) {
+		$Style=" style=\"font-weight: none; font-style: none;\" "; } }
+		if ($PinnedTopic==1) {
+		if ($TopicStat==0) {
+		$Style=" style=\"font-weight: bold; font-style: none;\" "; } }
+		if ($PinnedTopic==0) {
+		if ($TopicStat==1) {
+		$Style=" style=\"font-weight: none; font-style: italic;\" "; } }
+		if ($PinnedTopic==1) {
+		if ($TopicStat==1) {
+		$Style=" style=\"font-weight: bold; font-style: italic;\" "; } }
+		?>  <tr>
+   <td style="text-align: center;" width="2%"><?php echo $PreTopic; ?></td>
+   <td width="27%"><a id="topic<?php echo $TopicID ?>" name="topic<?php echo $TopicID ?>"><!-- The Topic --></a><span class="TopicText"><a href="Topic.php?id=<?php echo $TopicID ?>&amp;ForumID=<?php echo $ForumID; ?>&amp;CatID=<?php echo $CategoryID; ?>&amp;act=View"<?php echo $Style ?>title="<?php echo $lang2['topic created by']; ?> <?php echo $User1Name ?> <?php echo $lang2['at']; ?> <?php echo $TheTime ?>"><?php echo $TopicName ?></a></span></td>
+   <td width="36%"><a title="<?php echo $lang2['topic created on']; ?> <?php echo $TheTime ?>"><?php echo $TheTime ?></a></td>
+   <td width="31%"><a href="Members.php?act=Profile&amp;id=<?php echo $UsersID ?>" title="<?php echo $lang2['view users profile']; ?>"><?php echo $User1Name ?></a></td>
+   <td width="6%" align="center"><a title="There are <?php echo $ReplyNumber ?> <?php echo $lang2['replys in']; ?> <?php echo $TopicName ?>"><?php echo $ReplyNumber ?></a></td>
+  </tr><?php
+	   ++$i; } ?></td></tr></table><?php
+				} } 
+		 if ($Google['ads']==true) {
 	if ($Google['adsBottom']==true) {?>
 <table align="center" border="1" cellpadding="2" cellspacing="3" width="100%"><tr><td>
 <div style="text-align: center;"><script type="text/javascript" src="misc/show_ads.js"></script></div>

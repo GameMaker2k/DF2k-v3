@@ -31,13 +31,13 @@ if ($_GET['act']=="Lo-Fi") {?>
 <title><?php echo $BoardName?> <?php echo $TitleLine ?> <?php echo $lang2['lo-fi version']; ?> <?php echo $lang['powered by df2k']; ?><?php echo $_SESSION['DF2kPreVer']; ?></title>
 <?php } ?></head><?php
 if ($_GET['Backwards']=="Yes") {
-	echo "\n<body dir=\"rtl\">"; }
+	echo "\n<body dir=\"rtl\" onload=\"updatetoggle('TabStatus');\">"; }
 if ($_GET['Backwards']=="yes") {
-	echo "\n<body dir=\"rtl\">"; }
+	echo "\n<body dir=\"rtl\" onload=\"updatetoggle('TabStatus');\">"; }
 if ($_GET['Backwards']=="on") {
-	echo "\n<body dir=\"rtl\">"; }
+	echo "\n<body dir=\"rtl\" onload=\"updatetoggle('TabStatus');\">"; }
 if ($_GET['Backwards']!="on") {
-    echo "\n<body>"; }
+    echo "\n<body onload=\"updatetoggle('TabStatus');\">"; }
 ?>
 <?php
 $Type="Topic";
@@ -246,15 +246,53 @@ $number_2=mysql_num_rows($result_2);
 $query_3="SELECT * FROM ".$TablePreFix."Members";
 $result_3=mysql_query($query_3);
 $number_3=mysql_num_rows($result_3);
-if($_GET['act']=="View") { $Show_URL="index.php?act=View&amp;".$StatusBoxExtra."#BoardStat"; }
-if($_GET['act']!="View") { $Show_URL="index.php?".$StatusBoxExtra."#BoardStat"; }
 ?>
+<script type="text/javascript">
+<!--
+function toggleview2(id)
+{
+if (itm.style.display == "none")
+{
+itm.style.display = "";
+createCookie('Status1','',7);
+}
+else
+{
+itm.style.display = "none";
+createCookie('Status1','none',7);
+}
+}
+function toggletag2(id)
+{
+getid(id);
+toggleview2(id);
+}
+function updatetoggle(id)
+{
+if(readCookie('Status1')==null)
+{
+getid(id);
+itm.style.display = "";
+}
+if(readCookie('Status1')=="none")
+{
+getid(id);
+itm.style.display = "none";
+}
+if(readCookie('Status1')=="")
+{
+getid(id);
+itm.style.display = "";
+}
+}
+//-->
+</script>
 <table border="1" width="100%" cellpadding="2" cellspacing="3">
  <tr>
-  <th width="100%"><span class="ForumText"><a href="<?php echo $Show_URL; ?>" onclick="toggletag('TabStatus')" Name="BoardStats"><?php echo $BoardName; ?> Status</a></span></th>
+  <th width="100%"><span class="ForumText"><a href="<?php echo $BoardQuery; ?>#BoardStat" onclick="toggletag2('TabStatus');" Name="BoardStats"><?php echo $BoardName; ?> Status</a></span></th>
  </tr>
 </table>
-<table style="display: <?php echo $StatusBoxShow; ?>" id="TabStatus" border="1" width="100%" cellpadding="2" cellspacing="3">
+<table id="TabStatus" border="1" width="100%" cellpadding="2" cellspacing="3">
  <tr>
   <th width="25%">
   <span class="ForumText">Board Status</span>

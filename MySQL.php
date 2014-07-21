@@ -61,7 +61,7 @@ $FixMinute=-60;
 /* Board info Here */
 $KeyWords=$Settings['board_keywords'];
 $Description=$Settings['board_description'];
-$TitleLine = "&raquo;";
+$TitleLine = "&#165;";
 $NewBoardURL['Change'] = $TablePreFix.$database;
 if ($_SESSION['BoardURL']==null) {
 $_SESSION['BoardURL']	 = $TablePreFix.$database; }
@@ -165,36 +165,6 @@ if(eregi($BotList[$iz],$_SERVER['HTTP_USER_AGENT'])) {
 		$_SESSION['UserTimeZone']=SeverOffSet(null);
 		$_SESSION['Browser']=$_SERVER['HTTP_USER_AGENT']; }
 ++$iz; }
-if ($_SESSION['FastReplyBox']==null) {
-$_SESSION['FastReplyBox'] = "Off"; }
-if ($_GET['FastReply']=="On") {
-$_SESSION['FastReplyBox'] = "On"; }
-if ($_GET['FastReply']=="Off") {
-$_SESSION['FastReplyBox'] = "Off"; }
-if ($_SESSION['FastReplyBox']=="On") {
-$FastReplyShow = " ";
-$FastReplyExtra = "&amp;FastReply=Off"; }
-if ($_SESSION['FastReplyBox']=="Off") {
-$FastReplyShow = "None";
-$FastReplyExtra = "&amp;FastReply=On"; }
-//Board Stats Box
-if ($_SESSION['BoardStatsBox']==null) {
-$_SESSION['BoardStatsBox'] = "Off"; }
-if ($_GET['StatusBox']=="On") {
-$_SESSION['BoardStatsBox'] = "On"; }
-if ($_GET['StatusBox']=="Off") {
-$_SESSION['BoardStatsBox'] = "Off"; }
-if ($_SESSION['BoardStatsBox']=="On") {
-$StatusBoxShow = " ";
-$StatusBoxExtra = "StatusBox=Off"; }
-if ($_SESSION['BoardStatsBox']=="Off") {
-$StatusBoxShow = "None";
-$StatusBoxExtra = "StatusBox=On"; }
-if ($_SESSION['LastReply']==null) {
-	$_SESSION['LastReply']=$_COOKIE['LastReply']; }
-if ($_SESSION['LastReply']!=$_COOKIE['LastReply']) {
-	setcookie("LastReply");
-	setcookie("LastReply", $_SESSION['LastReply'], time() + (7 * 86400) ); }
 //Skining Stuff
 if ($HTTP_COOKIE_VARS[UseSkin]==null) {
 setcookie("UseSkin", 1, time() + (7 * 86400) ); }
@@ -256,6 +226,8 @@ function GMTimeGet($format,$offset)
 $TimeFix	 = $FixMinute;
 return gmdate($format,mktime(date('H')+$offset,date('i')-1,date('s'),date('n'),date('j'),date('Y')));
 }
+$OldBoardQuery = preg_replace("/&/isxS", "&amp;", $_SERVER['QUERY_STRING']);
+$BoardQuery = "?".$OldBoardQuery;
 if ($_SESSION['BoardMove']=="Yes") {
 $FileName = preg_replace("/\/board/isxS", "", $_SERVER['REQUEST_URI']);
 header('Location: '.$FileName.''); }
@@ -283,12 +255,12 @@ $Google['adsBottom'] = $Settings['google_ads_bottom'];
 ?>
 <base href="<?php echo "http://".$_SERVER['HTTP_HOST'].$URLPart; ?>">
 <link rel="prefetch" href="<?php echo $_SERVER['PHP_SELF']; ?>?act=FavIcon">
-<link rel="prefetch" href="misc/Toggle.php">
 <link rel="prefetch alternate stylesheet" title="Designed for DF2k" href="Skin/Skin1/CSS.php">
 <link rel="prefetch alternate stylesheet" title="Designed for DF2k" href="Skin/Skin2/CSS.php">
 <link rel="prefetch alternate stylesheet" title="Designed for DF2k" href="Skin/Skin3/CSS.php">
 <link rel="stylesheet" type="text/css" href="Skin/Skin<?php echo $_SESSION["Skin"] ?>/CSS.php" media="all">
 <link rel="icon" href="<?php echo $_SERVER['PHP_SELF']; ?>?act=FavIcon" type="image/png">
+<script type="text/javascript" src="misc/Cookie.php"></script>
 <script type="text/javascript" src="misc/Toggle.php"></script>
 <script type="text/javascript" src="misc/miscjs.php?Skin=<?php echo $_SESSION["Skin"]; ?>"></script>
 <?php if ($_GET['JavaScript']!=null||$_POST['JavaScript']!=null) {

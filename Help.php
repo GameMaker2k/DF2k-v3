@@ -114,6 +114,12 @@ if ($_GET['act']=="View") {
 <tr>
 <td width="100%" align="center"><a href="Members.php?act=List" title="View Member List"><?php echo $lang2['view member list']; ?></a></td>
 </tr> 
+<tr>
+<td width="100%" align="center"><a href="Search.php?type=Users" title="Search For a Users"><?php echo "Search For a Users"; ?></a></td>
+</tr> 
+<tr>
+<td width="100%" align="center"><a href="Search.php?type=Topics" title="Search For a Topics"><?php echo "Search For a Topics"; ?></a></td>
+</tr> 
 <?php
 if ($_GET['act']=="View") {
 $query="SELECT * FROM ".$TablePreFix."Help ORDER BY ID";
