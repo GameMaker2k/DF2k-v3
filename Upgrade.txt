@@ -1,0 +1,2 @@
+Upgrade From DF2k v3.2.R Beta 3 to DF2k v3.3.R Beta 3
+	Upload and Over write all file but Settings.php and Run Upgrade.php

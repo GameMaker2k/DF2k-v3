@@ -1,0 +1,4 @@
+[19-Jul-2005 01:08:24] PHP Fatal error:  Call to undefined function:  gm2k_encrypt2() in /home/df2k/public_html/Board/misc/Tools/Encrypter.php on line 48
+[19-Jul-2005 01:08:30] PHP Fatal error:  Call to undefined function:  gm2k_encrypt2() in /home/df2k/public_html/Board/misc/Tools/Encrypter.php on line 48
+[19-Jul-2005 01:16:43] PHP Warning:  main(../Settings.php): failed to open stream: No such file or directory in /home/df2k/public_html/Board/misc/Tools/Password.php on line 1
+[19-Jul-2005 01:16:43] PHP Fatal error:  main(): Failed opening required '../Settings.php' (include_path='.:/usr/lib/php:/usr/local/lib/php') in /home/df2k/public_html/Board/misc/Tools/Password.php on line 1

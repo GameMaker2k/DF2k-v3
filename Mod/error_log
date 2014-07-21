@@ -1,0 +1,57 @@
+[17-Jul-2005 18:42:27] PHP Warning:  ini_set(): Cannot change zlib.output_compression - headers already sent in /home/df2k/public_html/Board/Mod/MySQL.php on line 5
+[17-Jul-2005 18:42:27] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 33
+[17-Jul-2005 18:42:27] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 120
+[17-Jul-2005 18:42:27] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 133
+[17-Jul-2005 18:42:28] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:42:28] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:42:28] PHP Warning:  ini_set(): Cannot change zlib.output_compression - headers already sent in /home/df2k/public_html/Board/Mod/MySQL.php on line 5
+[17-Jul-2005 18:42:28] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 33
+[17-Jul-2005 18:42:28] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 120
+[17-Jul-2005 18:42:28] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 133
+[17-Jul-2005 18:42:29] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:42:29] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:42:36] PHP Warning:  ini_set(): Cannot change zlib.output_compression - headers already sent in /home/df2k/public_html/Board/Mod/MySQL.php on line 5
+[17-Jul-2005 18:42:36] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 33
+[17-Jul-2005 18:42:36] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 120
+[17-Jul-2005 18:42:36] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 133
+[17-Jul-2005 18:42:37] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:42:37] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:42:37] PHP Warning:  ini_set(): Cannot change zlib.output_compression - headers already sent in /home/df2k/public_html/Board/Mod/MySQL.php on line 5
+[17-Jul-2005 18:42:37] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 33
+[17-Jul-2005 18:42:37] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 120
+[17-Jul-2005 18:42:37] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 133
+[17-Jul-2005 18:42:38] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:42:38] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:43:10] PHP Warning:  ini_set(): Cannot change zlib.output_compression - headers already sent in /home/df2k/public_html/Board/Mod/MySQL.php on line 5
+[17-Jul-2005 18:43:10] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 33
+[17-Jul-2005 18:43:10] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 120
+[17-Jul-2005 18:43:10] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 133
+[17-Jul-2005 18:43:10] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:43:10] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:44:51] PHP Warning:  ini_set(): Cannot change zlib.output_compression - headers already sent in /home/df2k/public_html/Board/Mod/MySQL.php on line 5
+[17-Jul-2005 18:44:51] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 33
+[17-Jul-2005 18:44:51] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 120
+[17-Jul-2005 18:44:51] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 133
+[17-Jul-2005 18:44:51] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:44:51] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:44:57] PHP Warning:  ini_set(): Cannot change zlib.output_compression - headers already sent in /home/df2k/public_html/Board/Mod/MySQL.php on line 5
+[17-Jul-2005 18:44:57] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 33
+[17-Jul-2005 18:44:57] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 33
+[17-Jul-2005 18:44:57] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 120
+[17-Jul-2005 18:44:57] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 133
+[17-Jul-2005 18:44:57] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:44:57] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:44:58] PHP Warning:  ini_set(): Cannot change zlib.output_compression - headers already sent in /home/df2k/public_html/Board/Mod/MySQL.php on line 5
+[17-Jul-2005 18:44:58] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 33
+[17-Jul-2005 18:44:58] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 33
+[17-Jul-2005 18:44:58] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 120
+[17-Jul-2005 18:44:58] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 133
+[17-Jul-2005 18:44:58] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:44:58] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:47:42] PHP Warning:  ini_set(): Cannot change zlib.output_compression - headers already sent in /home/df2k/public_html/Board/Mod/MySQL.php on line 5
+[17-Jul-2005 18:47:42] PHP Warning:  session_start(): Cannot send session cookie - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 33
+[17-Jul-2005 18:47:42] PHP Warning:  session_start(): Cannot send session cache limiter - headers already sent (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 33
+[17-Jul-2005 18:47:42] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 120
+[17-Jul-2005 18:47:42] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in /home/df2k/public_html/Board/Mod/MySQL.php on line 133
+[17-Jul-2005 18:47:42] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
+[17-Jul-2005 18:47:42] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/df2k/public_html/Board/Mod/index.php:1) in Unknown on line 0
