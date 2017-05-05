@@ -2,11 +2,11 @@
 /*
  * Project:     SafeSQL: db access library extension
  * File:        SafeSQL.class.php
- * Author:      Monte Ohrt <monte@ispi.net>
+ * Author:      Monte Ohrt <monte at newdigitalgroup dot com>
  *
- * Version:     2.1
- * Date:        August 13, 2004
- * Copyright:   2001,2002,2003,2004 ispi of Lincoln, Inc.
+ * Version:     2.2
+ * Date:        March 27th, 2007
+ * Copyright:   2001-2005 New Digital Group, Inc.
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -23,13 +23,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
  *
  */
-
-$File1Name = dirname($_SERVER['PHP_SELF'])."/";
-		$File2Name = $_SERVER['PHP_SELF'];
-		$File3Name=str_replace($File1Name, null, $File2Name);
-		if ($File3Name=="SafeSQL.class.php"||$File3Name=="/SafeSQL.class.php") {
-		echo "<title>".$File3Name." (PHP File)</title>\n\r<b>Warning</b>: Failed to open stream: Permission denied in <b>".$File3Name."</b> on line <b>1</b>!<br />";
-		exit(); }
 
 class SafeSQL
 {
@@ -54,7 +47,7 @@ class SafeSQL
 			
 			$_var_count = count($query_vars);
 			
-			if($_var_count != preg_match_all('!%[sSiIfFcClLqQ]!', $query_string, $_match)) {
+			if($_var_count != preg_match_all('!%[sSiIfFcClLqQnN]!', $query_string, $_match)) {
 				$this->_error_msg('unmatched number of vars and % placeholders: ' . $query_string);
 			}
 						
@@ -77,7 +70,7 @@ class SafeSQL
                 }
 				// escape string
 				$query_vars[$_x] = $this->_sql_escape($query_vars[$_x]);
-				if(in_array($_match[0][$_x], array('%S','%I','%F','%C','%L','%Q'))) {
+				if(in_array($_match[0][$_x], array('%S','%I','%F','%C','%L','%Q','%N'))) {
 					// get positions of [ and ]
                     if(isset($_last_var_pos))
 					    $_right_pos = strpos($query_string, ']', $_last_var_pos);
@@ -129,6 +122,7 @@ class SafeSQL
 				%c, %C - comma separate, cast each element to integer
 				%l, %L - comma separate, no quotes, no casting
 				%q, %Q - quote/comma separate
+				%n, %N - wrap value in single quotes unless NULL
 \*======================================================================*/
 	function _convert_var($var, $type) {
 		switch($type) {
@@ -168,6 +162,11 @@ class SafeSQL
 				// quote comma separate
 				$var = "'" . implode("','", $var) . "'";
 				break;
+            case '%n':
+            case '%N':
+                if($var != 'NULL')
+                    $var = "'" . $var . "'";
+                break;
 		}
 		return $var;
 	}	
@@ -271,38 +270,5 @@ class SafeSQL_ANSI extends SafeSQL {
 		break;
 	}	
 }
-
-/*======================================================================*\
-    Jones at example dot com (10-Dec-2004 10:24)
-
-    I use the following funktion to avoid such things:
-
-\*======================================================================*/
-
-function prepareSQL($queryString, $paramArr) {
-   foreach (array_keys($paramArr) as $paramName) {
-       if (is_int($paramArr[$paramName])) {
-           $paramArr[$paramName] = (int)$paramArr[$paramName];
-       }
-       elseif (is_numeric($paramArr[$paramName])) {
-           $paramArr[$paramName] = (float)$paramArr[$paramName];
-       }
-       elseif (($paramArr[$paramName] != 'NULL') and ($paramArr[$paramName] != 'NOT NULL')) {
-           $paramArr[$paramName] = mysql_real_escape_string(stripslashes($paramArr[$paramName]));
-           $paramArr[$paramName] = '\''.$paramArr[$paramName].'\'';
-       }
-   }
-   
-   return preg_replace('/\{(.*?)\}/ei','$paramArr[\'$1\']', $queryString);
-}
-
-/*======================================================================*\
-    $sqlQuery = 'SELECT col1, col2 FROM tab1 WHERE col1 = {1} AND col3 = {2} LIMIT {3}';
-    $stm = mysql_query(prepareSQL($sqlQuery, array('username', 24.3, 20);
-    So everything that's not NULL, NOT NULL, an integer or a float/double will be escaped with MySQL's mysql_real_escape_string and putted into '
-    A problem is if e.g. an user gives an "hacked" variable for the LIMIT-Clause - than the function whould return something like this
-    SELECT .... LIMIT '0; DELETE FROM users'
-    So mysql whould produce an error - but better than deleting the users table ;)
-\*======================================================================*/
 
 ?>
