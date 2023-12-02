@@ -1,6 +1,6 @@
 [![Stand With Ukraine](https://raw.githubusercontent.com/vshymanskyy/StandWithUkraine/main/banner2-direct.svg)](https://stand-with-ukraine.pp.ua)
 
-How to Install Discussion Forums 2k v3.0.R Beta 3½ and Tag Boards v3.0.R Beta 3½
+<pre>How to Install Discussion Forums 2k v3.0.R Beta 3½ and Tag Boards v3.0.R Beta 3½
 First You Need a Web Host With PHP and MySQL Heres one You Can Use http://www.tripod.lycos.co.uk/signup/
 http://50free.com/
 Unzip The Files and Upload Them and run install.php you dont need to do any edits.
@@ -74,4 +74,4 @@ to Turn on HTML Edit MySQL.php and at Line 14 Change No to Yes.
 // CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 // TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 // SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.     
-//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+//-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-</pre>
